@@ -11,22 +11,15 @@
 #pragma once
 #include <display/console.h>
 #include <tp/f_ap_game.h>
+#include <tp/d_a_alink.h>
+#include <tp/d_meter2.h>
+#include <tp/d_bg_s_acch.h>
+#include <tp/d_stage.h>
 
 #include <cinttypes>
 
 namespace mod
 {
-    /***********************************************************************************
-     * We're creating a cusutom REL file and thus the real main function already ran
-     * before we even load this program.
-     * That's also why we create a custom namespace to avoid confusing the compiler with the actual main function
-     * whilst still having a neat starting function for you to begin your Twilight Princess mod development!
-     * Note:
-     * If you want to change the namespace "mod" you will have to make adjustments to rel.cpp in libtp_rel!
-     *
-     * This main function is going to be executed once at the beginning of the game,
-     * assuming the REL got loaded in the first place.
-     ***********************************************************************************/
     void main();
     class Mod
     {
@@ -35,16 +28,26 @@ namespace mod
         void init();
 
        private:
-        // Counter
-        int i;
         // Console
         libtp::display::Console c;
         // "trampoline/return" function to the original function that we hook in order to proc our NewFrame function
-        void ( *return_fapGm_Execute )() = nullptr;
+        libtp::tp::d_a_alink::daAlink_BckData* ( *return_fapGm_Execute )(libtp::tp::d_a_alink::daAlink* linkActrPtr, libtp::tp::d_a_alink::daAlink_ANM i_anmID) = nullptr;
+        void ( *healthUIOn)(libtp::tp::d_meter2_draw::dMeter2Draw_c* dMeterDrawPtr) = nullptr;
+        void ( *unSheathShield)(libtp::tp::d_a_alink::daAlink* linkActrPtr) = nullptr;
+        void ( *buttonRBigMad)(libtp::tp::d_meter2_draw::dMeter2Draw_c* thingy, uint8_t, uint8_t, bool, bool) = nullptr;
+        bool ( *cuccoMoment)(libtp::tp::d_a_alink::daAlink* linkActrPtr) = nullptr;
+        int32_t ( *buttonRRRRR)(void* stageDt, libtp::tp::d_stage::stage_dzr_header_entry* i_data, int32_t num, void* raw_data) = nullptr;
 
+        libtp::tp::d_a_alink::daAlink_BckData* manualShield(libtp::tp::d_a_alink::daAlink* linkActrPtr, libtp::tp::d_a_alink::daAlink_ANM i_anmID);
         /**
-         * @brief This function is called when there's a frame update
-         */
-        void procNewFrame();
+         * @brief checks if heart UI is on for first frame
+         * 
+         * @param dMeterPtr A pointer to the current dMeter2 structure.
+        */
+        void UICheck(libtp::tp::d_meter2_draw::dMeter2Draw_c* dMeterDrawPtr);
+        void unSheathingShield(libtp::tp::d_a_alink::daAlink* linkActrPtr);
+        void buttonRWhy(libtp::tp::d_meter2_draw::dMeter2Draw_c* thingy, uint8_t, uint8_t, bool, bool);
+        bool cuccoCheckMoment(libtp::tp::d_a_alink::daAlink* linkActrPtr);
+        int32_t buttonRExists(void* stageDt, libtp::tp::d_stage::stage_dzr_header_entry* i_data, int32_t num, void* raw_data);
     };
 }     // namespace mod
