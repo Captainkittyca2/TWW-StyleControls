@@ -102,9 +102,13 @@
 // d_a_alink.h
 800a990c:setStickData
 800b2a90:checkHeavyStateOn
+800bccec:procAutoJumpInit
+800be540:procCrouchInit
+800cfc80:procDamageInit
 8010e104:checkTreasureRupeeReturn
 801123bc:procGanonFinishInit
 80112440:procGanonFinish
+80127f94:procWolfDamageInit
 
 // data
 803d0d68:climbVars
@@ -114,6 +118,16 @@
 
 // d_menu_collect.o
 80197928:setWalletMaxNum
+
+// d_meter2.o
+8020bb4c:moveLife
+8020bf70:moveKantera
+8020c320:moveOxygen
+8020ca60:moveRupee
+
+// d_meter2_draw.o
+801fcbe8:setAlphaLifeAnimeMin
+801fcc48:setAlphaLifeAnimeMax
 
 // JKRHeap.o
 802cd940:__nw_JKRHeap
@@ -144,6 +158,13 @@
 // 00000000:L2GlobalInvalidate
 // 803464c8:DMAErrorHandler
 // 80346610:__OSCacheInit
+
+// os.o
+800000F8:__OSBusClock
+
+// OSTime.o
+8033a37c:OSGetTime
+8033a394:OSGetTick
 
 // runtime.o
 803a8fd8:_savefpr_14
@@ -253,3 +274,35 @@
 805215f5:sPauseTimer
 
 CC008000:wgPipe
+
+800b9ba8:commonProcInitNotSameProc
+803d01f8:crouchVars
+800a3e40:getMainBckData
+800d3610:setShieldGuard
+800b65a8:setItemActor
+801dfb24:dMw_DOWN_TRIGGER
+800bd59c:procDiveJumpInit
+800d3458:checkUpperGuardAnime
+803d1e50:m_anmDataTable
+80148f04:checkBombItem
+800c65c0:checkHorseRide
+802510ec:cXyzAdd
+80251174:cXyzMultiply
+8003273c:dComIfGp_getSelectItem
+8001fa94:fopAcM_fastCreate
+800db818:setGrabItemActor
+80032fd0:dComIfGp_addSelectItemNum
+803cf840:something
+800da078:setGrabUpperAnime
+800eeed4:procCrawlMoveInit
+800b25bc:checkNextActionFromCrouch
+8001f9d8:fopAcM_delete
+80028314:fpcSch_JudgeForPName
+8001f618:fopAcIt_Judge
+80131608:setClothesChange
+80033688:setSelectEquipClothes
+8001fa20:fopAcM_create
+800a4948:setSingleAnime
+80038448:isFirstBit
+80521848:mAudioMgrPtr
+80290280:z2SeMgr_seStart

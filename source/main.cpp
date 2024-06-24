@@ -113,12 +113,7 @@ namespace mod
         libtp::patch::hookFunction( libtp::tp::d_menu_window::dMw_DOWN_TRIGGER, DownNope);
         libtp::patch::hookFunction( libtp::tp::d_a_alink::procDiveJumpInit, DiveNope);
         libtp::patch::hookFunction( libtp::tp::d_a_alink::procCrouchInit, crouchStuff);
-        //libtp::patch::hookFunction( libtp::tp::d_a_player::checkRoomRestartStart, resetTheRoom);
 #ifndef PLATFORM_WII
-        //buttonRRRRR =
-            //libtp::patch::hookFunction( libtp::tp::d_stage::dStage_playerInit, [](void* stageDt, libtp::tp::d_stage::stage_dzr_header_entry* i_data, int32_t num, void* raw_data) { return gMod->buttonRExists(stageDt, i_data, num, raw_data);});
-        //buttonRBigMad =
-            //libtp::patch::hookFunction( libtp::tp::d_meter2_draw::drawButtonR, [](libtp::tp::d_meter2_draw::dMeter2Draw_c* dMeterDrawPtr, uint8_t hi, uint8_t there, bool amogus, bool sussyness) { return gMod->buttonRWhy(dMeterDrawPtr, hi, there, amogus, sussyness);});
         libtp::patch::hookFunction( libtp::tp::d_a_alink::spActionTrigger, RButtonThingy);
         libtp::patch::hookFunction( libtp::tp::d_a_alink::swordSwingTrigger, BButtonThingy);
 #endif
@@ -151,6 +146,12 @@ namespace mod
         return unSheathShield(linkActrPtr);
     }
 
+#if defined(TP_WUS0) || defined(TP_WEU)
+    int16_t temporar = 0x106;
+#else
+    int16_t temporar = 0x108;
+#endif
+
     bool Mod::cuccoCheckMoment(libtp::tp::d_a_alink::daAlink* linkActrPtr) {
 
         if (libtp::tp::d_a_player::checkBombItem(linkActrPtr->mEquipItem)) {
@@ -166,7 +167,7 @@ namespace mod
             {
                 if (linkActrPtr->mEquipItem == 0x70) {
                     if (libtp::tp::d_bg_s_acch::ChkGroundHit(&linkActrPtr->mLinkAcch) == false) {
-                        sussy = (libtp::tp::f_op_actor::fopAc_ac_c*)libtp::tp::f_op_actor_mng::fopAcM_fastCreate(0x108, 0, &create_pos, -1, NULL, NULL, 0xff, NULL, NULL);
+                        sussy = (libtp::tp::f_op_actor::fopAc_ac_c*)libtp::tp::f_op_actor_mng::fopAcM_fastCreate(temporar, 0, &create_pos, -1, NULL, NULL, 0xff, NULL, NULL);
                         cuccoWait = true;
                         grabRemember = true;
                         linkActrPtr->mProcID = 0xA;
@@ -199,7 +200,6 @@ namespace mod
     bool bamba = false;
     bool timestartt = false;
     uint8_t padingTimer = 0;
-    int16_t temporar = 0x108;
 
     void Mod::UICheck(libtp::tp::d_meter2_draw::dMeter2Draw_c* dMeterDrawPtr) {
 #ifdef PLATFORM_WII
@@ -262,7 +262,7 @@ namespace mod
                 tiimer = 0;
                 greenLight = false;
                 if ((libtp::tp::f_op_actor::fopAc_ac_c*)libtp::tp::f_op_actor_iter::fopAcIt_Judge(libtp::tp::f_op_actor_mng::fpcSch_JudgeForPName, &temporar) == NULL) {
-                    id = (libtp::tp::f_op_actor::fopAc_ac_c*)libtp::tp::f_op_actor_mng::fopAcM_create(0x108, 0, NULL, -1, NULL, NULL, 0xFF);
+                    id = (libtp::tp::f_op_actor::fopAc_ac_c*)libtp::tp::f_op_actor_mng::fopAcM_create(temporar, 0, NULL, -1, NULL, NULL, 0xFF);
                 }
             }
         }

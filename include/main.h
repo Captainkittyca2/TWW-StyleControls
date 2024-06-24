@@ -1,11 +1,11 @@
 /**
  * @file main.h
- * @author Captain Kitty Cat (youtube.com/@captainkittyca2)
+ * @author your name (you@domain.com)
  * @brief
- * @version 0.2
- * @date 2024-05-18
+ * @version 0.1
+ * @date YYYY-MM-DD
  *
- * @copyright Copyright (c) 2024
+ * @copyright Copyright (c) YYYY
  *
  */
 #pragma once
