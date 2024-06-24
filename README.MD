@@ -1,48 +1,38 @@
+# TWW-Style Controls
+A "The Legend of Zelda: Twilight Princess" mod that modifies aspects of Twilight Princess to work more like "The Wind Waker", a GameCube Zelda game.
 
+`Currently supports most GameCube and Wii versions of Twilight Princess`
 
-# Twilight Princess - REL
-This is a template repository for you to create your very own Twilight Princess mod and provide a simple start to write your code. Kind of like a "hello world" for TP.
+## Modified/Added features
 
-## Project Structure
----
-```
-REL
-├───externals/              // Submodules or other dependencies are placed here
-│   │   ├───libtp_rel/
-│   │   │   ├───include/    // Library Header files
-│   │   │   ├───source/     // Library source files
-├───assets/                 // Additional resources that are not code
-│   ├───gc_banner.raw       // Game banner for the GCI
-|   ├───wii_banner.raw      // Game banner for the Wii save
-|   ├───icon.raw            // Game icon for the GCI
-│   ├───*.lst          	    // Symbol:Address pairs for each version of the game
-├───bin/                    // Binary files and scripts
-│   ├───elf2rel             // Linux Binary of elf2rel
-│   ├───elf2rel.exe         // Windows "
-│   ├───gcipack.py          // Packs a REL into a GCI
-│   ├───nandpack.py         // Packs a REL into a Wii save
-├───docs/                   // Doxygen Output folder; can be used for GitHub pages - change in doxygen.conf
-├───include/                // Your Header (.h) files
-├───source/                 // Your Source (.cpp) files
-├───Makefile                // Build script
-├───.clang-format           // clang-format configuration file
-├───doxygen.conf            // doxygen configuration file
-```
+* Crouching: Hold R button to crouch.
+* L-Targeting: Player doesn't aim his shield automatically when L-Targeting, instead have to hold down R button after L-Targeting to aim shield.
+* Cucco item: Modfiied normal bombs so that Player takes out Cucco when in mid-air and can glide. When in the ground, player will take out bomb.
+* Armors Quick-Toggle returns from [ALBW-Style Meter mod](https://github.com/Captainkittyca2/TP_ALBWStyleMeter)!
+* Shield-Crouching: Hold R button while holding an item/sword to shield-crouch.
 
-## Getting started
----
-This repository provides you with a solid start, you should use the predefined main function as an entry point to your mod...
-Please check Lines 19 through 30 in the Makefile to change some of the definitions and names.
+## Known Major Issues
+* If Player takes Cucco out after Link enters screaming state when falling, he can't glide.
+* If player voids out while still holding Cucco item, game might crash.
+* In some conditions, Link won't be able to press R to interact with things because he will crouch. One possible workaround is L-targeting before interacting with those things (GC issue only)
 
-You can refer to the [Randomizer](//github.com/zsrtp/Randomizer) Project for reference.
-
-## Wiki
----
-### General
-Our [wiki](//wiki.tprandomizer.com) is meant to be a central source of information for TP with a slightly technical focus we provide the most crucial information such as Stages & Rooms or item ids. If you're looking for information you should be looking there or ask in the [dev discord](//discord.gg/aZx8ZFcSPy).
-
-### Coding guidelines
-If you intend to share this code with the @zsrtp community, please follow the [guidelines](//wiki.tprandomizer.com/index.php?title=Dev:Coding_Guidelines) as strictly as possible.
+## Clips
+### Crouching
+| Twilight Princess                            | The Wind Waker                            |
+| ----------------------------------- | ----------------------------------- |
+| ![](https://github.com/Captainkittyca2/tp/blob/TWW-Style_Controls/GIFs/crouchTP.gif) | ![image](https://github.com/Captainkittyca2/tp/blob/TWW-Style_Controls/GIFs/crouchTWW.gif) |
+### L-Targeting
+| Twilight Princess                            | The Wind Waker                            |
+| ----------------------------------- | ----------------------------------- |
+| ![](https://github.com/Captainkittyca2/tp/blob/TWW-Style_Controls/GIFs/LltargetingTP.gif) | ![image](https://github.com/Captainkittyca2/tp/blob/TWW-Style_Controls/GIFs/LltargetingTWW.gif) |
+### Deku Leaf
+| Twilight Princess                            | The Wind Waker                            |
+| ----------------------------------- | ----------------------------------- |
+| ![](https://github.com/Captainkittyca2/tp/blob/TWW-Style_Controls/GIFs/glideTP.gif) | ![image](https://github.com/Captainkittyca2/tp/blob/TWW-Style_Controls/GIFs/glideTWW.gif) |
+### Armors Quick-toggle (ignore meter)
+| Kokiri->Zora                            | Kokiri->Armor                            |
+| ----------------------------------- | ----------------------------------- |
+| ![](https://github.com/Captainkittyca2/TP_ALBWStyleMeter/blob/main/GIFs/KokiriToZora.gif) | ![](https://github.com/Captainkittyca2/TP_ALBWStyleMeter/blob/main/GIFs/KokiriToArmor.gif) |
 
 ## Building
 ---
