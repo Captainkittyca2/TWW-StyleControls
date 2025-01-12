@@ -14,6 +14,10 @@
 80266B84:cXyzMultiply
 80266AE4:cXyzAdd
 
+800cc298:basicModelDraw
+800cc2e0:modelDraw
+801411d4:checkNoResetFlg3
+
 // data
 80450C34:archiveHeap
 
@@ -41,8 +45,19 @@
 80450CE0:isLoading
 
 802d5b38:JKRArchivePub_getGlbResource
+802D5C64:JKRArchive_getResource2
+802d5ecc:readIdxResource
+80228530:getBtiName
+
+// d_s_logo.o
+802572B8:dScnLogo_c_dt
 
 80254458:setBlackWhite
+800341e8:setCollect
+80098508:item_func_HYLIA_SHIELD
+80140274:loadShieldModelDVD
+800dd3e4:procGuardSlipInit
+800dde58:procGuardBreakInit
 
 800beaf8:checkSceneChange
 
@@ -80,6 +95,11 @@
 // f_ap_game.o
 80018A6C:fapGm_Execute
 
+// J2DPicture.o
+802FC708:J2DPicture_ct4
+802FCFF0:J2DPicture_dt
+802FDC70:J2DPicture_draw
+
 800cc7fc:drawLink
 80101890:checkZoraWearMaskDraw
 
@@ -89,6 +109,7 @@
 80019c7c:fopAcM_delete
 80019d98:fopAcM_create
 80019e04:fopAcM_fastCreate
+8001c3e0:fopAcM_fastCreateItem2
 8001b068:fopAcM_orderTalkEvent
 8001bb14:fopAcM_getTalkEventPartner
 8001BBE8:createItemForPresentDemo
@@ -111,6 +132,8 @@
 80033e60:onFirstBit
 80033e94:offFirstBit
 80033ec8:isFirstBit
+8015ceec:itemGetNextExecute
+8015c058:procInitSimpleGetDemo
 
 8007353c:LockOnTarget
 80450D64:mStayNo
@@ -118,6 +141,8 @@
 802557d0:setAlphaRate
 80215380:setAlphaMagicChange
 8021151C:drawMeter
+80211e64:initMagic
+80215290:drawMagic
 802f6ff8:resizeee
 800ade14:setBlendMoveAnime
 
@@ -170,6 +195,7 @@
 800d72bc:setDamagePoint
 800d96dc:procCoLargeDamageInit
 800dda10:procGuardAttackInit
+800ddba8:procGuardAttack
 800dea3c:makeArrow
 800deae4:deleteArrow
 800dfd6c:procBowSubjectInit
@@ -190,6 +216,11 @@
 800e1c44:checkNextActionCopyRod
 800e20c8:procCopyRodSwingInit
 800e21fc:procCopyRodSwing
+800e1f68:procCopyRodMoveInit
+800e1530:checkCopyRodAnime
+800e1840:setCopyRodReadyAnime
+800e1e20:procCopyRodSubjectInit
+800ad3a8:setUpperAnimeBaseSpeed
 800e3dbc:setGrabUpperAnime
 800e3f20:checkGrabRooster
 800e5bb4:setGrabItemActor
@@ -258,9 +289,6 @@
 // d_a_player.o
 80451018:m_midnaActor
 
-// data
-8038EB8C:ladderVars
-
 // d_menu_collect.o
 801B3340:setWalletMaxNum
 
@@ -283,6 +311,7 @@
 8021ea14:_create
 8021FD60:moveLife
 80220180:moveKantera
+8022051c:moveOxygen
 80223e00:moveBombNum
 80224354:moveArrowNum
 80224680:movePachinkoNum
@@ -299,8 +328,10 @@
 8021575c:setAlphaKanteraAnimeMax
 80215a18:setAlphaOxygenAnimeMin
 80215a94:setAlphaOxygenAnimeMax
+802158f0:setAlphaOxygenChange
 80214eb4:drawKanteraScreen
 802154a8:drawKantera
+802157e0:drawOxygen
 8021764c:drawButtonR
 802190a8:setAlphaButtonAnimeMax
 80219e98:setButtonIconAlpha
@@ -334,7 +365,7 @@
 8033B5AC:DCFlushRange
 // 8033B5DC:DCStoreRange
 // 8033B60C:DCFlushRangeNoSync
-// 8033B638:DCStoreRangeNoSync
+8033B638:DCStoreRangeNoSync
 // 8033B664:DCZeroRange
 8033B690:ICInvalidateRange
 // 8033B6C4:ICFlashInvalidate
@@ -449,3 +480,197 @@
 803AC5A0:item_resource
 803ADD88:field_item_res
 803AED78:item_info
+
+801412c4:onNoResetFlg0
+800d1268:setSwordModel
+801b3cf4:setEquipItemFrameColorShield
+8003c1e4:getResInfo
+8003c2ec:getRes
+80053a00:dDlst_2D
+801255bc:clearWoodShieldBurnEffect
+80125628:setWoodShieldBurnOutEffect
+801044b4:procSwimWait
+801047b8:procSwimMove
+80104958:procSwimDiveInit
+80104aa0:procSwimDive
+800bfdb0:checkZoraWearAbility
+80101cf4:setWaterInAnmRate
+80101a18:getSwimFrontMaxSpeed
+801029c8:checkNextActionSwim
+80103058:checkSwimUpAction
+80103698:setSwimMoveAnime
+8011a4c0:procCoUnequipInit
+800c38cc:procAtnActorWaitInit
+800b32b0:checkAtnWaitAnime
+800aea70:setBlendAtnMoveAnime
+800c3810:procAtnMoveInit
+800c39ec:procAtnActorMoveInit
+80141410:checkNoResetFlg0
+80115c20:checkEventRun
+8038db40:cutJumpVars
+800d2c78:setCutJumpSpeed
+800c61ec:procAutoJump
+800c6d20:procFall
+800bb770:setSpecialGravity
+800bb458:checkBootsOrArmorHeavy
+80270540:cLib_addCalcAngleS
+800b3250:setDoStatus
+800e4bd4:freeGrabItem
+800c0164:checkSetItemTrigger
+800e2580:setHeavyBoots
+800b5bc0:setFallVoice
+800ad3d8:setUpperAnime
+800b994c:checkItemChangeFromButton
+8038ed2c:swimStuff
+800d47dc:procCutTurnInit
+800b3358:setTiredVoice
+800d34d8:procCutFinishInit
+800d4c68:procCutTurnChargeInit
+800d6238:procCutLargeJumpChargeInit
+800d6374:procCutLargeJumpInit
+800d3adc:procCutFinishJumpUpInit
+800d5c88:procCutHeadInit
+800c3da0:procSideStepInit
+800c3868:procAtnMove
+800c3a44:procAtnActorMove
+80019aa8:CreateAppend
+80024efc:ActorCreate
+800b3494:getDirectionFromAngle
+8009b79c:isInsect
+8015cdcc:mode_water
+801159f0:procIronBallReturnInit
+800ffab0:procClimbMoveUpDownInit
+800ffdb0:procClimbMoveSideInit
+80100258:procClimbWait
+800ff450:procClimbUpStartInit
+800fb544:procHangWait
+800fb790:procHangMove
+800fb1a4:procHangFallStart
+801412b0:checkEquipHeavyBoots
+8001a7e0:fopAcM_searchActorDistance
+801412bc:fopAcM_getName
+800c12dc:deleteEquipItem
+8038EB8C:climbVars
+8038E1E0:wallMoveVars
+800d77c8:checkMagicArmorNoDamage
+80141324:checkPlayerStatus1
+80141308:checkPlayerStatus0
+800b33e4:checkRestHPAnime
+800e672c:procGrabPutInit
+800e63f0:procGrabThrowInit
+800e5cbc:procGrabReadyInit
+800dc8c4:setArrowShieldActor
+800dd114:setGuardSe
+800d7c40:checkDamageAction
+8038de8c:cutVars
+8038db84:cutTurnVars
+800fdf50:procLadderMove
+800fd8e8:procLadderUpEnd
+8038daec:cutFinalJumpVars
+8038de18:cutLargeJumpVars
+800de008:procTurnMoveInit
+800de380:procTurnMove
+800b9148:checkSideRollAction
+80084460:ChkTgHit
+80083688:getAc
+8038df28:atPushVars
+800d2284:setSwordVoiceSe
+8038eb50:itemVars
+80182d5c:fopAcM_GetParam
+80031ff4:checkWaterBomb
+8001cb48:fopAcM_setCarryNow
+8001d5a4:fopAcM_getProcNameString
+800f95b8:procCrawlMove
+8038df9c:guardVars
+802c3bd4:startLinkSound
+801042f8:procSwimWaitInit
+802590f8:changeGameScene
+80262c5c:do_link
+80262f28:do_unlink
+80182ad8:checkRide
+804531e8:waterColor
+800f9210:procCrawlStartInit
+800c2ddc:procPreActionUnequipInit
+80425514:l_waitBaseAnime
+800f9d7c:procCrawlEndInit
+800f7c50:getCrawlMoveAnmSpeed
+800f88f8:decideCrawlDoStatus
+80346d6c:PSMTXMultVec
+8038faa8:l_crawlStandUpOffset
+8038fa78:l_crawlFrontUpOffset
+8038fa90:l_crawlBackUpOffset
+8038fb20:l_crawlMinSideOffset
+80346e4c:PSMTXMultVecSR
+800f89e0:checkNotCrawlStand
+800f8a50:checkNotCrawlStand2
+800b1fd8:getSlidePolygon
+8032842c:checkPass
+800BF37C:initBasAnime
+800f8f08:stopHalfMoveAnime
+800f8b00:checkCrawlInHoll
+800F8D04:setCrawlMoveHoll
+800f7e48:changeCrawlAutoMoveProc
+800f8dbc:setCrawlMoveAngle
+800f7c74:getCrawlMoveSpeed
+8038fa60:l_crawlBackOffset
+8038fa54:l_crawlFrontOffset
+800F85C0:crawlBgCheck
+800b1b28:checkNotJumpSinkLimit
+8038df70:turnMoveVars
+800c397c:procAtnActorWait
+80216dac:drawButtonA
+800d53c8:procCutDownInit
+800bfdfc:checkMagicArmorWearAbility
+800bb408:checkMagicArmorHeavy
+8021cf08:readItemTexture
+8035de40:GXInitTexObj
+80348890:DVDOpen
+80006cec:OSReport_Warning
+80348e44:DVDReadPrio
+80348958:DVDClose
+8035e414:GXLoadTexObj
+8035c764:GXBegin
+8035c8bc:GXSetLineWidth
+CC008000:wgPipe
+8021cc80:getItemType
+8021d44c:get2ndTexture
+8021d4b8:get3rdTexture
+8021d4fc:get4thTexture
+8021db64:set4thColor
+8021d764:set3rdColor
+8021d644:set2ndColor
+8021d524:set1stColor
+802fd874:changeTexture
+80368be4:strlen
+801e8210:optionInitialize
+801e7004:setAttenString
+801e70e8:setVibString
+801e71cc:setSoundString
+801e3fc4:atten_move
+801e41f8:vib_move
+801e44e0:sound_move
+801e2c1c:deleteOptionsMenu
+801e3408:optionsMenuMove
+801e4b34:confirm_open_init
+801e4f18:confirm_close_init
+800d0e08:checkLightSwordMtrl
+800d4efc:procCutTurnMove
+800d2abc:checkCutLargeTurnState
+800d5fc8:procCutHead
+800d382c:procCutFinish
+802fd964:changeTexturee
+802f90a0:searchhh
+802f72e0:searchhh2
+80210fb0:drawMeter2Init
+8018bee0:setBlaackWhiite
+80253984:CPaneMgr_ct4
+802095c0:buttonMeterString
+802C168C:staartCreatureVoice
+800bf79c:setMetamorphoseModel
+8014475c:CreateItemHeap
+80037b78:CheckFieldItemCreateHeap
+8009b7c4:check_itemno
+800d7208:damageMagnification
+8015ba9c:daItem_execute
+8015b3d8:CreateInitItem
+800332f8:setLineUpItem
